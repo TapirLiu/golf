@@ -1,1 +1,1 @@
-A temporary *l*ocal *f*ile sharing server.
+A **go** server temporary **l**ocal **f**ile sharing.
