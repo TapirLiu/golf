@@ -4,7 +4,6 @@ import (
 	"flag"
 	"fmt"
 	"net/http"
-	"path/filepath"
 	"os"
 	"net"
 	"time"
@@ -17,9 +16,9 @@ var (
 func main() {
 	flag.Parse()
 	
-	pwd, err := filepath.Abs(filepath.Dir(os.Args[0]))
+	pwd, err := os.Getwd()
 	if err != nil {
-		fmt.Println("Can't get current path.")
+		fmt.Println("Can't get current directory.")
 		os.Exit(1)
 	}
 
