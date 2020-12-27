@@ -93,7 +93,11 @@ func main() {
 	}()
 
 	handler := NoCacheHandler(http.FileServer(http.Dir(pwd)))
-	if err = http.ListenAndServe(":"+*port, handler); err != nil {
+  addr := ":"+*port
+  if runtime.GOOS == "darwin" {
+    addr = "localhost:" + *port
+  }
+	if err = http.ListenAndServe(addr, handler); err != nil {
 		log.Printf("Failed to start server: %v\n", err)
 	}
 }
